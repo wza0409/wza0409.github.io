@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【札记】Elyot Grant——设计解谜游戏的30堂课 | Aozi</title><meta name="author" content="Aozi"><meta name="copyright" content="Aozi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="原视频链接：Elyot Grant - 30 Puzzle Design Lessons, Extended Director’s CutB站搬运中文字幕版：【GDC中英字幕】设计解谜游戏的30堂课 - Elyot Grant（加长版）【SolidFly翻译】 笔记 虽然视频的标题是”30 Puzzle Design Lessons”，但作者的分享的其实并不是真正的“30节课”，而是系统性地分享了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【札记】Elyot Grant——设计解谜游戏的30堂课">
+<meta property="og:url" content="https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot%20Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/index.html">
+<meta property="og:site_name" content="Aozi">
+<meta property="og:description" content="原视频链接：Elyot Grant - 30 Puzzle Design Lessons, Extended Director’s CutB站搬运中文字幕版：【GDC中英字幕】设计解谜游戏的30堂课 - Elyot Grant（加长版）【SolidFly翻译】 笔记 虽然视频的标题是”30 Puzzle Design Lessons”，但作者的分享的其实并不是真正的“30节课”，而是系统性地分享了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wza0409.github.io/img/covers/puzzle-sovling.jpg">
+<meta property="article:published_time" content="2024-03-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-06T05:17:17.551Z">
+<meta property="article:author" content="Aozi">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Game Design">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wza0409.github.io/img/covers/puzzle-sovling.jpg"><link rel="shortcut icon" href="/img/avatar.png"><link rel="canonical" href="https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot%20Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【札记】Elyot Grant——设计解谜游戏的30堂课',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-06 13:17:17'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/works/ImgsForWorks/"><i class="fa-fw fa-solid fa-book"></i><span> 作品集</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 成长之路</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/blender/"><span> Blender</span></a></li><li><a class="site-page child" href="/categories/cpp/"><span> C++</span></a></li><li><a class="site-page child" href="/categories/design/"><span> Design</span></a></li><li><a class="site-page child" href="/categories/modding/"><span> Modding</span></a></li><li><a class="site-page child" href="/categories/substancePainter/"><span> SubstancePainter</span></a></li><li><a class="site-page child" href="/categories/unrealEngine/"><span> Unreal Engine</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/covers/puzzle-sovling.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Aozi"><span class="site-name">Aozi</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/works/ImgsForWorks/"><i class="fa-fw fa-solid fa-book"></i><span> 作品集</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 成长之路</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/blender/"><span> Blender</span></a></li><li><a class="site-page child" href="/categories/cpp/"><span> C++</span></a></li><li><a class="site-page child" href="/categories/design/"><span> Design</span></a></li><li><a class="site-page child" href="/categories/modding/"><span> Modding</span></a></li><li><a class="site-page child" href="/categories/substancePainter/"><span> SubstancePainter</span></a></li><li><a class="site-page child" href="/categories/unrealEngine/"><span> Unreal Engine</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【札记】Elyot Grant——设计解谜游戏的30堂课</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-25T16:00:00.000Z" title="发表于 2024-03-26 00:00:00">2024-03-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-06T05:17:17.551Z" title="更新于 2024-04-06 13:17:17">2024-04-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/">游戏设计</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>原视频链接：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=oCHciE9CYfA">Elyot Grant - 30 Puzzle Design Lessons, Extended Director’s Cut</a><br>B站搬运中文字幕版：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RR4y1M7fJ/?p=1&vd_source=86128b85703ec8a387cba46da927b1b5">【GDC中英字幕】设计解谜游戏的30堂课 - Elyot Grant（加长版）【SolidFly翻译】</a></p>
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><blockquote>
+<p>虽然视频的标题是”30 Puzzle Design Lessons”，但作者的分享的其实并不是真正的“30节课”，而是系统性地分享了30个谜题设计的话题。我将这30个话题归类到三个大的部分，一是尤里卡时刻(Eureka Moment)；二是谜题的深度(The Depth of the puzzle), 也就是作者所说的”真正传达意义的谜题”；三是余下的具体技巧(Tricks of Puzzle Design)，这些技巧是视频的主要内容。视频主要是站在传统解谜设计的视角，但其中的很多思想和方法同样适用于电子游戏的解谜设计。</p>
+</blockquote>
+<h2 id="Eureka-Moment"><a href="#Eureka-Moment" class="headerlink" title="Eureka Moment"></a>Eureka Moment</h2><ul>
+<li><p>Eureka Moment – A sudden, pleasureful, fluent, confident feeling of <strong>understanding</strong>, also known as <strong>Aha Monent</strong>, <strong>Wow Moment</strong>, <strong>Insights</strong>…</p>
+</li>
+<li><p><strong>Sparkle</strong> is the “amplitude” of Eureka</p>
+</li>
+<li><p><strong>Eureka</strong> is not <strong>Fiero</strong>. </p>
+<ul>
+<li>Fiero – Fiero is the emotion of overcoming a tough.Create a puzzle, make it challenging, then player will “feel smart”.It’s a approach motivated by <strong>valuing-overcoming</strong> the challenge. For example, finally vanquish a really difficult boss.</li>
+</ul>
+<blockquote>
+<p>So Preserving the ability for player to <strong>make the discover on their own</strong> which heightens the experience of Fiero.</p>
+</blockquote>
+<ul>
+<li>Eureka is to learn the deep interesting thing or making that interesting discovery.</li>
+</ul>
+</li>
+</ul>
+<p> <img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot_Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/eureka_vs_fiero.png" alt="Eureka vs Fiero" title="Eureka vs Fiero"></p>
+<ul>
+<li><strong>Eureka</strong> is to discover and comprehend, while <strong>Fiero</strong> is to solve problem by oneself. Eureka and Fiero mostly overlap during puzzle-solving process, but they are different at all.</li>
+</ul>
+<blockquote>
+<p>Fiero – I figured it out! <strong>Any Challenge</strong> can confer Fiero.<br>Eureka – That’s interesting! <strong>Only Puzzle</strong> can confer Eureka.</p>
+</blockquote>
+<h2 id="The-Depth-of-the-puzzle"><a href="#The-Depth-of-the-puzzle" class="headerlink" title="The Depth of the puzzle."></a>The Depth of the puzzle.</h2><ul>
+<li>Normally, we use puzzles for increasing playtime, controlling pacing, inserting an challenge…</li>
+<li>The asethetic of making a good puzzle isn’t just about making a challenge that makes the player feel satisfied.</li>
+</ul>
+<blockquote>
+<p>“It’s not a good idea to just be trying to make the player feel smart. You want to communicate to them an actual substance of something.”<br>                                                  – Jonathan Blow</p>
+</blockquote>
+<ul>
+<li>Make Meaningful puzzling<ul>
+<li>That means do not make puzzles for puzzling.</li>
+<li>Exploit the natural human <strong>puzzle instinct</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h2 id="What-to-Do-in-Games"><a href="#What-to-Do-in-Games" class="headerlink" title="What to Do in Games"></a>What to Do in Games</h2></blockquote>
+<blockquote>
+<p>Avoid <strong>repetitve</strong> and <strong>monotonous</strong> puzzles.<br>Combine puzzles with <strong>narritation</strong>.<br>Let some puzzles play an <strong>significant role</strong> in progreesion of the game.</p>
+</blockquote>
+<ul>
+<li>Solver Experience<ul>
+<li><strong>Low does</strong> vs <strong>high dose</strong></li>
+<li><strong>Low difficulty</strong> vs <strong>high difficuly</strong></li>
+<li><strong>Novelty</strong> vs <strong>repetition</strong></li>
+<li><strong>Flow</strong> vs <strong>rollercoaster</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="Tricks-of-Puzzle-Design"><a href="#Tricks-of-Puzzle-Design" class="headerlink" title="Tricks of Puzzle Design"></a>Tricks of Puzzle Design</h2><h3 id="Create-a-Rewarding-Ending"><a href="#Create-a-Rewarding-Ending" class="headerlink" title="Create a Rewarding Ending"></a>Create a Rewarding Ending</h3><p> <img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot_Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/meaningful_pattern.png" alt="meaningful pattern" title="meaningful pattern "></p>
+<ul>
+<li>Shape makes puzzle interesting while puzzle will <strong>depend heavily on the shape</strong> being a certain way, which may cause bad puzzle-solving experience.</li>
+<li>Steps by Steps: <strong>show what player want to see</strong> – </li>
+<li>Create setups for metapuzzle(元谜题，谜题的<strong>谜底</strong>作为另一个谜题的开始，或是解谜的必要条件——循序渐进、分层递进) – A good way to control <strong>Pacing</strong> and <strong>Beats</strong> of the level.</li>
+<li>Exploit Peak-End Rule（峰终定律：用户对一项事物的体验之后,所能记住的就只是在峰(高峰)与终(结束)时的体验,而在过程中好与不好体验的比重、体验时间的长短,对记忆的影响不多。）</li>
+</ul>
+<h3 id="Enbed-Secrets-And-Surprises-–-Enbed-more-Eureka-Momnets-in-a-level"><a href="#Enbed-Secrets-And-Surprises-–-Enbed-more-Eureka-Momnets-in-a-level" class="headerlink" title="Enbed Secrets And Surprises – Enbed more Eureka Momnets in a level"></a>Enbed Secrets And Surprises – Enbed more Eureka Momnets in a level</h3><ul>
+<li>“easter eggs”, untracked, missable – additonal excitement</li>
+</ul>
+<h3 id="Aporia-is-a-Promise-of-Surprise"><a href="#Aporia-is-a-Promise-of-Surprise" class="headerlink" title="Aporia is a Promise of Surprise"></a>Aporia is a Promise of Surprise</h3><ul>
+<li>Aporia – A state of puzzlement where the solver believes that the puzzle is <strong>impossible</strong>（like many <strong>topology puzzles</strong>）</li>
+<li>Aporia creates a promise: <ul>
+<li>“A interesting trick exists”</li>
+<li>A powerful Eureka Moment is waiting for you! – the antipation is motivating (Visually hide a key prop would likewise make sense, the trick is to find it out, search the area closely)<br> <img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot_Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/aporia.png" alt="Aporia" title="Aporia"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Cultivate-the-Trust-of-The-Solver"><a href="#Cultivate-the-Trust-of-The-Solver" class="headerlink" title="Cultivate the Trust of The Solver"></a>Cultivate the Trust of The Solver</h3><p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot_Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/Cultivate_the_Trust_of_The_Solver.png" alt="Cultivate the Trust of The Solver" title="Cultivate the Trust of The Solver"></p>
+<ul>
+<li>前期出现的后期谜题需要有明确的标识————告诉玩家他缺少什么道具， 否则玩家会尝试解谜，然后无功而返————这会让游戏的谜题失去玩家的信任</li>
+<li>A solution in <em>Superland</em> is to tell player that the puzzle is solvable, but it’s sort of <strong>unsurprising</strong> and seems <strong>intentional</strong>.<br><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot_Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BEsuperland.png" alt="superland: tell player that the puzzle is solvable" title="superland: tell player that the puzzle is solvable"></li>
+</ul>
+<h3 id="Avoid-cheap-tricks"><a href="#Avoid-cheap-tricks" class="headerlink" title="Avoid cheap tricks!"></a>Avoid cheap tricks!</h3><ul>
+<li>Puzzle is supported to be <strong>natural</strong> rather than making <strong>cunning</strong> obstacles</li>
+<li>Do not make player do lots of searching without a clue – 比如说游戏中经常有大量的可破坏的箱子，而且这些箱子大概率不会掉出东西，或者只有一些非常微小的奖励(以至于完全可以无视掉)。那么，在一般情况下，就不应该把重要的道具放在这些箱子里，来强迫玩家“必须做一些本来无意义的事”才能破解谜题。同样的，在一个非常刁钻隐蔽的位置藏匿关键道具也是同理</li>
+<li></li>
+<li>游戏的谜题风格需要在一定程度上保持统一，太多的不一致和变化很难建立玩家对规则的认知<blockquote>
+<p>Too much changing rules bring inconsistency, then player will never know whether they can expect their understanding of the game and their <strong>Conceptual Model</strong> for how the game systems work to be correct.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Be-Careful-with-Intransparencies"><a href="#Be-Careful-with-Intransparencies" class="headerlink" title="Be Careful with Intransparencies"></a>Be Careful with Intransparencies</h3><ul>
+<li>Intransparencies – Aspects of a puzzle that are not explained to the solver. Such as hidden goals, hidden rulesm,hidden affordance(隐藏的能力), hidden interactions, hidden consequences…</li>
+<li>Intransparencies may make <strong>inability to perceive or interpret the state of the puzzle</strong></li>
+</ul>
+<h3 id="Faciliate-Experimentation"><a href="#Faciliate-Experimentation" class="headerlink" title="Faciliate Experimentation"></a>Faciliate Experimentation</h3><ul>
+<li>Experimentation makes intransparencies transparent – show the hidden rules</li>
+<li>Avoid making experimentation <strong>frustrating</strong> and <strong>monotonous</strong></li>
+<li>Get the solver on the right path. <strong>Confirmers</strong> – When player put a correct thing, <strong>give feedback</strong>(green light or sound)to remind players that they have done a right thing and keep going on! </li>
+<li>Red herrings(红鲱鱼：指转移注意力的事物) Types:<ul>
+<li><strong>Dreesings</strong>: needless non-pertinent decorations that are salient enough to be interpreted as pertinent(环境搭建，视觉引导，突出谜题，本身与谜题无关)</li>
+<li><strong>Distractors</strong>: affordances that are not needed</li>
+<li><strong>Fake puzzles and ghost puzzles</strong>: false clues mistaken as puzzles…</li>
+<li><strong>Obfuscation and misdirection</strong>: <strong>dead end approach</strong>(死胡同方法), get player a <strong>negative confirmer</strong>(but do not make too much <strong>trial cost</strong>)</li>
+<li>Rabbit trails<ul>
+<li>Solver may only change approach after giving up</li>
+<li>Seal off rabbit trials, add negative confirmer<blockquote>
+<p>Match <strong>Pertinence</strong> with <strong>salience</strong>.<br>让<strong>相关性</strong>与<strong>显著性</strong>相匹配。相关性是指与谜题有关的东西————线索、交互、角色能力、物品……；显著性是指事物被玩家感知的强度。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Seek-Depth-in-Systems-and-Ruleset-追求系统与规则集的深度"><a href="#Seek-Depth-in-Systems-and-Ruleset-追求系统与规则集的深度" class="headerlink" title="Seek Depth in Systems and Ruleset(追求系统与规则集的深度)"></a>Seek Depth in Systems and Ruleset(追求系统与规则集的深度)</h3><ul>
+<li>Get player form <strong>Conceptual Model</strong>(概念模型)</li>
+<li><strong>Capacity of different puzzle types</strong>(谜题的容量): <strong>游戏的机制</strong>所支持的不同样式谜题的上限 —— 基于目前的机制，我们可以设计出多少种谜题？是否需要加入新的机制？如何设计新的机制？新加入的机制能够带来多少新的谜题？</li>
+<li>Where does depth come form<ul>
+<li>Go puzzles(天然的内在深度): 简单的基本规则构建出复杂而多变的结果，通常是基于数学或自然科学的。围棋。</li>
+<li>Contrivance(人为构造): 人为构造的(复杂)规则。炉石传说。</li>
+<li>Interactions(规则互动):n个不同规则，就有2^n种组合方式。 <em>Baby is You</em>， 塞尔达， 原神(元素反应)</li>
+<li>Level geometry(关卡几何结构): 空间带来的多样性。<ul>
+<li>connectivity&#x2F;path</li>
+<li>packing or covering</li>
+<li>perspective, line of sight </li>
+<li>logic gates</li>
+<li>state manipulation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Understand-Your-Puzzle’s-State-Space"><a href="#Understand-Your-Puzzle’s-State-Space" class="headerlink" title="Understand Your Puzzle’s State Space"></a>Understand Your Puzzle’s State Space</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wza0409.github.io">Aozi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot%20Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/">https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot%20Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wza0409.github.io" target="_blank">Aozi</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Notes/">Notes</a><a class="post-meta__tags" href="/tags/Game-Design/">Game Design</a></div><div class="post_share"><div class="social-share" data-image="/img/covers/puzzle-sovling.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E3%80%8A%E6%9C%80%E5%90%8E%E7%94%9F%E8%BF%98%E8%80%85%E3%80%8B%E8%BD%A6%E7%AB%99%E5%85%B3%E5%8D%A1%E6%8B%86%E5%88%86/" title="【札记】《最后生还者》车站关卡拆分"><img class="cover" src="/img/covers/the_last_of_us.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【札记】《最后生还者》车站关卡拆分</div></div></a></div><div class="next-post pull-right"><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%BC%80%E6%94%BE%E4%B8%96%E7%95%8C%E5%85%B3%E5%8D%A1%E8%AE%BE%E8%AE%A1/" title="【札记】开放世界关卡设计"><img class="cover" src="/img/covers/the_last_of_us.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【札记】开放世界关卡设计</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E3%80%8A%E6%9C%80%E5%90%8E%E7%94%9F%E8%BF%98%E8%80%85%E3%80%8B%E8%BD%A6%E7%AB%99%E5%85%B3%E5%8D%A1%E6%8B%86%E5%88%86/" title="【札记】《最后生还者》车站关卡拆分"><img class="cover" src="/img/covers/the_last_of_us.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-17</div><div class="title">【札记】《最后生还者》车站关卡拆分</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%AE%8C%E5%85%A8%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%B3%E5%8D%A1%E8%AE%BE%E8%AE%A1/" title="【札记】完全非线性关卡设计"><img class="cover" src="/img/logo_gdc.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-28</div><div class="title">【札记】完全非线性关卡设计</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%BC%80%E6%94%BE%E4%B8%96%E7%95%8C%E5%85%B3%E5%8D%A1%E8%AE%BE%E8%AE%A1/" title="【札记】开放世界关卡设计"><img class="cover" src="/img/covers/the_last_of_us.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-27</div><div class="title">【札记】开放世界关卡设计</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%8F%99%E4%BA%8B%E4%B8%8E%E5%BC%95%E5%AF%BC/" title="【札记】关卡设计的叙事与引导"><img class="cover" src="/img/logo_gdc.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-30</div><div class="title">【札记】关卡设计的叙事与引导</div></div></a></div><div><a href="/Unreal-Engine/%E8%99%9A%E5%B9%BBC++%E5%B0%8F%E8%AE%B0/" title="【札记】虚幻C++学习笔记"><img class="cover" src="/img/logo_UnrealEngine.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-19</div><div class="title">【札记】虚幻C++学习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Aozi</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Eureka-Moment"><span class="toc-number">1.1.</span> <span class="toc-text">Eureka Moment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Depth-of-the-puzzle"><span class="toc-number">1.2.</span> <span class="toc-text">The Depth of the puzzle.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-to-Do-in-Games"><span class="toc-number">1.3.</span> <span class="toc-text">What to Do in Games</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tricks-of-Puzzle-Design"><span class="toc-number">1.4.</span> <span class="toc-text">Tricks of Puzzle Design</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-Rewarding-Ending"><span class="toc-number">1.4.1.</span> <span class="toc-text">Create a Rewarding Ending</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Enbed-Secrets-And-Surprises-%E2%80%93-Enbed-more-Eureka-Momnets-in-a-level"><span class="toc-number">1.4.2.</span> <span class="toc-text">Enbed Secrets And Surprises – Enbed more Eureka Momnets in a level</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Aporia-is-a-Promise-of-Surprise"><span class="toc-number">1.4.3.</span> <span class="toc-text">Aporia is a Promise of Surprise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cultivate-the-Trust-of-The-Solver"><span class="toc-number">1.4.4.</span> <span class="toc-text">Cultivate the Trust of The Solver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Avoid-cheap-tricks"><span class="toc-number">1.4.5.</span> <span class="toc-text">Avoid cheap tricks!</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Be-Careful-with-Intransparencies"><span class="toc-number">1.4.6.</span> <span class="toc-text">Be Careful with Intransparencies</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Faciliate-Experimentation"><span class="toc-number">1.4.7.</span> <span class="toc-text">Faciliate Experimentation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Seek-Depth-in-Systems-and-Ruleset-%E8%BF%BD%E6%B1%82%E7%B3%BB%E7%BB%9F%E4%B8%8E%E8%A7%84%E5%88%99%E9%9B%86%E7%9A%84%E6%B7%B1%E5%BA%A6"><span class="toc-number">1.4.8.</span> <span class="toc-text">Seek Depth in Systems and Ruleset(追求系统与规则集的深度)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Understand-Your-Puzzle%E2%80%99s-State-Space"><span class="toc-number">1.4.9.</span> <span class="toc-text">Understand Your Puzzle’s State Space</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/covers/puzzle-sovling.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Aozi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">世界，充满未解之谜……</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script></div></body></html>
