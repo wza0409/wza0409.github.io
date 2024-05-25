@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【札记】关卡布局与灯光使用的技巧 | Aozi</title><meta name="author" content="Aozi"><meta name="copyright" content="Aozi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="演讲分享了如何使用关卡布局(layout)来自然地引导玩家，从而最大限度地减少HUD标记(HUD Marks)和强制摄像机移动(Forced Camera Moves)的依赖。原视频链接：Level Design Workshop Blockmesh and Lighting Tips Blockmesh Guidance(白盒布局的引导)Block &#x3D; Greybox &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【札记】关卡布局与灯光使用的技巧">
+<meta property="og:url" content="https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:site_name" content="Aozi">
+<meta property="og:description" content="演讲分享了如何使用关卡布局(layout)来自然地引导玩家，从而最大限度地减少HUD标记(HUD Marks)和强制摄像机移动(Forced Camera Moves)的依赖。原视频链接：Level Design Workshop Blockmesh and Lighting Tips Blockmesh Guidance(白盒布局的引导)Block &#x3D; Greybox &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wza0409.github.io/img/covers/puzzle-sovling.jpg">
+<meta property="article:published_time" content="2024-05-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-25T02:58:54.631Z">
+<meta property="article:author" content="Aozi">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Game Design">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wza0409.github.io/img/covers/puzzle-sovling.jpg"><link rel="shortcut icon" href="/img/avatar.png"><link rel="canonical" href="https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【札记】关卡布局与灯光使用的技巧',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-25 10:58:54'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/works/ImgsForWorks/"><i class="fa-fw fa-solid fa-book"></i><span> 作品集</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 成长之路</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/blender/"><span> Blender</span></a></li><li><a class="site-page child" href="/categories/cpp/"><span> C++</span></a></li><li><a class="site-page child" href="/categories/design/"><span> Design</span></a></li><li><a class="site-page child" href="/categories/modding/"><span> Modding</span></a></li><li><a class="site-page child" href="/categories/substancePainter/"><span> SubstancePainter</span></a></li><li><a class="site-page child" href="/categories/unrealEngine/"><span> Unreal Engine</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/covers/puzzle-sovling.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Aozi"><span class="site-name">Aozi</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/works/ImgsForWorks/"><i class="fa-fw fa-solid fa-book"></i><span> 作品集</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 成长之路</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/blender/"><span> Blender</span></a></li><li><a class="site-page child" href="/categories/cpp/"><span> C++</span></a></li><li><a class="site-page child" href="/categories/design/"><span> Design</span></a></li><li><a class="site-page child" href="/categories/modding/"><span> Modding</span></a></li><li><a class="site-page child" href="/categories/substancePainter/"><span> SubstancePainter</span></a></li><li><a class="site-page child" href="/categories/unrealEngine/"><span> Unreal Engine</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【札记】关卡布局与灯光使用的技巧</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-20T16:00:00.000Z" title="发表于 2024-05-21 00:00:00">2024-05-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-25T02:58:54.631Z" title="更新于 2024-05-25 10:58:54">2024-05-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/">游戏设计</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<hr>
+<p>演讲分享了如何使用关卡布局(layout)来自然地引导玩家，从而最大限度地减少HUD标记(HUD Marks)和强制摄像机移动(Forced Camera Moves)的依赖。<br>原视频链接：<a target="_blank" rel="noopener" href="https://youtu.be/QBAM27YbKZg">Level Design Workshop Blockmesh and Lighting Tips</a></p>
+<h1 id="Blockmesh-Guidance-白盒布局的引导"><a href="#Blockmesh-Guidance-白盒布局的引导" class="headerlink" title="Blockmesh Guidance(白盒布局的引导)"></a>Blockmesh Guidance(白盒布局的引导)</h1><p>Block &#x3D; Greybox &#x3D; Whitebox, etc</p>
+<h2 id="Affordance"><a href="#Affordance" class="headerlink" title="Affordance"></a>Affordance</h2><ul>
+<li>properties of an object that define its possible uses or make clear it can or should be used</li>
+</ul>
+<blockquote>
+<p>功能可见性：物体或环境展现出的功能关卡中的一切交互、沟通、引导等。通风口是否可以跳下、绳子是否可以攀爬、门是否可以推动等等。 也即关卡中涉及的环境机制, 以及这些机制与玩家的互动。充分的功能可见性会与关卡可读性呈正相关。</p>
+</blockquote>
+<ul>
+<li>A way to <strong>communicate</strong> to the player what to play with or where to go</li>
+<li>Player learn the affordance rules via <strong>consistent color</strong> and shape and <strong>trust contract</strong> is formed(form <strong>Vacabulary</strong>)</li>
+</ul>
+<h2 id="Denying-Affordance"><a href="#Denying-Affordance" class="headerlink" title="Denying Affordance"></a>Denying Affordance</h2><ul>
+<li>Communicates to the player where NOT to go</li>
+<li>Contextualize why the player can’t use it&#x2F;go there.</li>
+</ul>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/breaking_up_horizontal_edge.png" alt="Breaking Up Horizontal Edge" title="Breaking Up Horizontal Edge"></p>
+<h2 id="Vistual-Language"><a href="#Vistual-Language" class="headerlink" title="Vistual Language"></a>Vistual Language</h2><ul>
+<li>Shape Language</li>
+</ul>
+<p>Round – safe<br>Rectangular – stable and useful<br>Diagonal – like spine, dangerous, need to look out</p>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/shape_language_1.png" alt="Shape Language 1" title="Shape Language 1"><br><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/shape_language_2.png" alt="Shape Language 2" title="Shape Language 2"></p>
+<ul>
+<li>Color Language</li>
+</ul>
+<p>Color consistency – Vacabulary with player, communicates affordance<br>Color in environmnent – Netural but stand out</p>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/color_language.png" alt="Color Language" title=" Color Language"></p>
+<h2 id="Landmarks"><a href="#Landmarks" class="headerlink" title="Landmarks"></a>Landmarks</h2><ul>
+<li>Orients players</li>
+<li>Distant object seen form many vantage points in the level</li>
+<li>A goal to work toward</li>
+</ul>
+<blockquote>
+<p>经常被作为POI使用，也常作为关卡的阶段性目标。充分的辨识度、相互之间无大面积遮挡，在多个角度可以观察到，反复出现。</p>
+</blockquote>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/landmarks.png" alt="Landmarks" title="Landmarks"></p>
+<h2 id="Optional-Attract"><a href="#Optional-Attract" class="headerlink" title="Optional Attract"></a>Optional Attract</h2><ul>
+<li>Caves, doors, archway, etc.</li>
+<li>Mystery – “What could be inside?”</li>
+</ul>
+<h2 id="Gates-Valves"><a href="#Gates-Valves" class="headerlink" title="Gates &amp; Valves"></a>Gates &amp; Valves</h2><blockquote>
+<p>Valves(Single valve)：封锁战斗区域，减少可能性空间，使玩家专注于特定的区域与事件。一些非战斗的单向阀，可以推动剧情的发展，迫使玩家拿到新能力后再利用新能力出来，同时又能对新能力起到教学作用(这种设计在银河恶魔城游戏中很常见)；同时起到对玩家提示的作用：”你走了正确的线路。”</p>
+</blockquote>
+<h2 id="Leading-Lines"><a href="#Leading-Lines" class="headerlink" title="Leading &amp; Lines"></a>Leading &amp; Lines</h2><ul>
+<li>Lines that draw your eye to the intended point of interest</li>
+</ul>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/leading_and_lines.png" alt="Leading and Lines" title="Leading and Lines"></p>
+<h2 id="Pinching"><a href="#Pinching" class="headerlink" title="Pinching"></a>Pinching</h2><ul>
+<li>Angle shapes to funnel players to a specific spot</li>
+<li>Good for redirection</li>
+<li>Great for setting up a reveal – to show POI to player without forcing the camera</li>
+</ul>
+<blockquote>
+<p>隧道、山涧、窄巷、室内狭长的通道……</p>
+</blockquote>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/pinching.png" alt="Pinching" title="Pinching"></p>
+<h2 id="Framing-Composition"><a href="#Framing-Composition" class="headerlink" title="Framing &amp; Composition"></a>Framing &amp; Composition</h2><ul>
+<li>Draw attention to point of interest by blocking other parts of image, making it stand out</li>
+</ul>
+<h2 id="Breadcrumbs"><a href="#Breadcrumbs" class="headerlink" title="Breadcrumbs"></a>Breadcrumbs</h2><ul>
+<li>Attract&#x2F;lead the player, a piece at a time, to a goal</li>
+<li>Can be almost anything that draws the eye:<ul>
+<li>Stuff that <strong>breaks up the negative</strong> space of floor&#x2F;walls</li>
+<li>Pickups </li>
+<li>Enemies</li>
+<li>Lit areas</li>
+</ul>
+</li>
+</ul>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/breadcrumbs.png" alt="Breadcrumbs" title="Breadcrumbs"></p>
+<h2 id="Textures"><a href="#Textures" class="headerlink" title="Textures"></a>Textures</h2><ul>
+<li>Point the way to go<ul>
+<li>Arrows pointing the way</li>
+<li>Scrapes on the ground&#x2F;wall</li>
+<li>signs</li>
+</ul>
+</li>
+</ul>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/textures.png" alt="Textures" title="Textures"></p>
+<h2 id="Movement"><a href="#Movement" class="headerlink" title="Movement"></a>Movement</h2><ul>
+<li>Use movement to grab the eye where you want players to go or what you want them to see<ul>
+<li>Big <strong>scripted moments</strong></li>
+<li>Birds</li>
+<li>Spark FX</li>
+<li>Enemies</li>
+<li>Something flapping in the breeze</li>
+</ul>
+</li>
+</ul>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/movement.png" alt="Movement" title="Movement"></p>
+<ul>
+<li>Cubves triggered to lerp in a direction or along a spline will suffice</li>
+<li>Can be a late game bandage for guidance</li>
+</ul>
+<h2 id="Light-God-Rays"><a href="#Light-God-Rays" class="headerlink" title="Light &amp; God Rays"></a>Light &amp; God Rays</h2><ul>
+<li>Players are attracted to the light</li>
+<li>God rays draw attention and line</li>
+</ul>
+<p><img src="/pics/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/god_rays.png" alt="God Rays" title="God Rays"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wza0409.github.io">Aozi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/">https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wza0409.github.io" target="_blank">Aozi</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Notes/">Notes</a><a class="post-meta__tags" href="/tags/Game-Design/">Game Design</a></div><div class="post_share"><div class="social-share" data-image="/img/covers/puzzle-sovling.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E8%A7%A3%E8%B0%9C%E8%AE%BE%E8%AE%A1%E5%88%86%E4%BA%AB/" title="【札记】关卡解谜设计分享"><img class="cover" src="/img/covers/the_last_of_us.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【札记】关卡解谜设计分享</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%85%B3%E5%8D%A1%E8%A7%A3%E8%B0%9C%E8%AE%BE%E8%AE%A1%E5%88%86%E4%BA%AB/" title="【札记】关卡解谜设计分享"><img class="cover" src="/img/covers/the_last_of_us.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-01</div><div class="title">【札记】关卡解谜设计分享</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91Elyot%20Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/" title="【札记】Elyot Grant——设计解谜游戏的30堂课"><img class="cover" src="/img/covers/puzzle-sovling.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-26</div><div class="title">【札记】Elyot Grant——设计解谜游戏的30堂课</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%BC%80%E6%94%BE%E4%B8%96%E7%95%8C%E5%85%B3%E5%8D%A1%E8%AE%BE%E8%AE%A1/" title="【札记】开放世界关卡设计"><img class="cover" src="/img/covers/the_last_of_us.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-27</div><div class="title">【札记】开放世界关卡设计</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E3%80%8A%E6%9C%80%E5%90%8E%E7%94%9F%E8%BF%98%E8%80%85%E3%80%8B%E8%BD%A6%E7%AB%99%E5%85%B3%E5%8D%A1%E6%8B%86%E5%88%86/" title="【札记】《最后生还者》车站关卡拆分"><img class="cover" src="/img/covers/the_last_of_us.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-17</div><div class="title">【札记】《最后生还者》车站关卡拆分</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%90%E6%9C%AD%E8%AE%B0%E3%80%91%E5%AE%8C%E5%85%A8%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%B3%E5%8D%A1%E8%AE%BE%E8%AE%A1/" title="【札记】完全非线性关卡设计"><img class="cover" src="/img/logo_gdc.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-28</div><div class="title">【札记】完全非线性关卡设计</div></div></a></div><div><a href="/Unreal-Engine/%E8%99%9A%E5%B9%BBC++%E5%B0%8F%E8%AE%B0/" title="【札记】虚幻C++学习笔记"><img class="cover" src="/img/logo_UnrealEngine.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-19</div><div class="title">【札记】虚幻C++学习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Aozi</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Blockmesh-Guidance-%E7%99%BD%E7%9B%92%E5%B8%83%E5%B1%80%E7%9A%84%E5%BC%95%E5%AF%BC"><span class="toc-number">1.</span> <span class="toc-text">Blockmesh Guidance(白盒布局的引导)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Affordance"><span class="toc-number">1.1.</span> <span class="toc-text">Affordance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Denying-Affordance"><span class="toc-number">1.2.</span> <span class="toc-text">Denying Affordance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vistual-Language"><span class="toc-number">1.3.</span> <span class="toc-text">Vistual Language</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Landmarks"><span class="toc-number">1.4.</span> <span class="toc-text">Landmarks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Optional-Attract"><span class="toc-number">1.5.</span> <span class="toc-text">Optional Attract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gates-Valves"><span class="toc-number">1.6.</span> <span class="toc-text">Gates &amp; Valves</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Leading-Lines"><span class="toc-number">1.7.</span> <span class="toc-text">Leading &amp; Lines</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pinching"><span class="toc-number">1.8.</span> <span class="toc-text">Pinching</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Framing-Composition"><span class="toc-number">1.9.</span> <span class="toc-text">Framing &amp; Composition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Breadcrumbs"><span class="toc-number">1.10.</span> <span class="toc-text">Breadcrumbs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Textures"><span class="toc-number">1.11.</span> <span class="toc-text">Textures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Movement"><span class="toc-number">1.12.</span> <span class="toc-text">Movement</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Light-God-Rays"><span class="toc-number">1.13.</span> <span class="toc-text">Light &amp; God Rays</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/covers/puzzle-sovling.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Aozi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">世界，充满未解之谜……</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script></div></body></html>
