@@ -1,0 +1,370 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Reading Notes of An Architecture Approach To Level Design | Aozi</title><meta name="author" content="Aozi"><meta name="copyright" content="Aozi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Level Design WorkflowsForm follows core mechanics Define level core mechanics to make each unique Space measurements Character mechanics form layouts. The gameplay actions that form the range of possi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reading Notes of An Architecture Approach To Level Design">
+<meta property="og:url" content="https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/An%20Architecture%20Approach%20To%20Level%20Design/index.html">
+<meta property="og:site_name" content="Aozi">
+<meta property="og:description" content="Level Design WorkflowsForm follows core mechanics Define level core mechanics to make each unique Space measurements Character mechanics form layouts. The gameplay actions that form the range of possi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wza0409.github.io/img/covers/an_architecture_approach_to_level_design.png">
+<meta property="article:published_time" content="2024-09-23T13:33:35.000Z">
+<meta property="article:modified_time" content="2024-10-23T13:51:15.916Z">
+<meta property="article:author" content="Aozi">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Game Design">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wza0409.github.io/img/covers/an_architecture_approach_to_level_design.png"><link rel="shortcut icon" href="/img/avatar.png"><link rel="canonical" href="https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/An%20Architecture%20Approach%20To%20Level%20Design/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Reading Notes of An Architecture Approach To Level Design',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-23 21:51:15'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/works"><i class="fa-fw fa-solid fa-book"></i><span> 作品集</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/covers/an_architecture_approach_to_level_design.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Aozi"><span class="site-name">Aozi</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/works"><i class="fa-fw fa-solid fa-book"></i><span> 作品集</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Reading Notes of An Architecture Approach To Level Design</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-23T13:33:35.000Z" title="发表于 2024-09-23 21:33:35">2024-09-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-23T13:51:15.916Z" title="更新于 2024-10-23 21:51:15">2024-10-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/">游戏设计</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Level-Design-Workflows"><a href="#Level-Design-Workflows" class="headerlink" title="Level Design Workflows"></a>Level Design Workflows</h1><h2 id="Form-follows-core-mechanics"><a href="#Form-follows-core-mechanics" class="headerlink" title="Form follows core mechanics"></a>Form follows core mechanics</h2><ul>
+<li>Define level core mechanics to make each unique</li>
+<li>Space measurements</li>
+<li>Character mechanics form layouts. The gameplay actions that form the range of possibilities for how a character may act or interact with environment.…</li>
+<li>Level progression with scaffolding mechanisms</li>
+<li>Scaffolding (起承转合): introducing a concept and applying it in increasingly complex ways over the course of several exercise</li>
+</ul>
+<h2 id="Level-Design-Workflows-1"><a href="#Level-Design-Workflows-1" class="headerlink" title="Level Design Workflows"></a>Level Design Workflows</h2><h3 id="Level-Design-Parti-Get-general-ideas-down"><a href="#Level-Design-Parti-Get-general-ideas-down" class="headerlink" title="Level Design Parti - Get general ideas down"></a>Level Design Parti - Get general ideas down</h3><ul>
+<li>Interactive parts of a level that factor into gameplay should be usable in many different ways in order to be valuable</li>
+</ul>
+<h3 id="“Scenes”-and-Readablity"><a href="#“Scenes”-and-Readablity" class="headerlink" title="“Scenes” and Readablity"></a>“Scenes” and Readablity</h3><ul>
+<li>Making each arctitectural spaces interesting</li>
+<li>Readability is an element of levels that can be adjust to fit the needs of different types of players and create different experiences.</li>
+</ul>
+<h3 id="Digital-Prototype-with-Grayboxing"><a href="#Digital-Prototype-with-Grayboxing" class="headerlink" title="Digital Prototype with Grayboxing"></a>Digital Prototype with Grayboxing</h3><ul>
+<li>Grayboxing is when a designer creates a level out of simple geometry, most often grey or quickly textured blocks, to test whether levels accomplished the gameplay goals.</li>
+<li>As an iterative process, grayboxing has designers begin with almost parti-like forms before transitioning toward more art and ornament-centric design once gameplay for level has been refined.</li>
+</ul>
+<h3 id="Pacing-your-level-with-Nintendo-Power-method"><a href="#Pacing-your-level-with-Nintendo-Power-method" class="headerlink" title="Pacing your level with Nintendo Power method"></a>Pacing your level with Nintendo Power method</h3><ul>
+<li>In-between the “loud” gameplay moments should be circulation space——spaces for movement-based gameplay, movement-base obstacles, exploration, or even rest and recharging of the player character</li>
+</ul>
+<h3 id="Iterative-Design-with-Playtesting"><a href="#Iterative-Design-with-Playtesting" class="headerlink" title="Iterative Design with Playtesting"></a>Iterative Design with Playtesting</h3><h3 id="Modular-Level-Design"><a href="#Modular-Level-Design" class="headerlink" title="Modular Level Design"></a>Modular Level Design</h3><ul>
+<li>Modular, that is, premade parts that can be copyed, assembled, disassembled, and moved esaily.</li>
+</ul>
+<h2 id="Level-Design-Scheduling"><a href="#Level-Design-Scheduling" class="headerlink" title="Level Design Scheduling"></a>Level Design Scheduling</h2><h3 id="Toyboxs-–-A-test-map-for-mechanics-in-levels"><a href="#Toyboxs-–-A-test-map-for-mechanics-in-levels" class="headerlink" title="Toyboxs – A test map for mechanics in levels"></a>Toyboxs – A test map for mechanics in levels</h3><h3 id="Building-from-the-Middle"><a href="#Building-from-the-Middle" class="headerlink" title="Building from the Middle"></a>Building from the Middle</h3><ul>
+<li>To create an ideal level that I wanted to achieve with my mechanics first then work backward so that I could introduce ideas to the player.</li>
+<li>Mode-first design: Rather than designing a bunch of levels with unique mechanisms, design a strong central gameplay concept and create variation by changing the condition of the board every time you enter that mode.</li>
+</ul>
+<h3 id="Building-in-Order"><a href="#Building-in-Order" class="headerlink" title="Building in Order"></a>Building in Order</h3><ul>
+<li>In terms of player experience, building in order works well for Metroidvanias or other games where a strong linear element (such as a story) is central to the game’s enjoyment. Part of what makes these games pleasurable is exploring a space to find the next item, completing the chain faster, or finding out what happens next.</li>
+<li>Another reason to build your levels in order is that your game may be simple enough that you do not need to plan extensive teaching levels.</li>
+</ul>
+<hr>
+<h1 id="Basic-Game-Space"><a href="#Basic-Game-Space" class="headerlink" title="Basic Game Space"></a>Basic Game Space</h1><h2 id="Architecture-Spacial-Arrangements"><a href="#Architecture-Spacial-Arrangements" class="headerlink" title="Architecture Spacial Arrangements"></a>Architecture Spacial Arrangements</h2><h3 id="Figure-Ground-外形-背景"><a href="#Figure-Ground-外形-背景" class="headerlink" title="Figure-Ground 外形-背景"></a>Figure-Ground 外形-背景</h3><h3 id="Form-Void-Solid-Void"><a href="#Form-Void-Solid-Void" class="headerlink" title="Form-Void (Solid-Void)"></a>Form-Void (Solid-Void)</h3><h3 id="Arrival"><a href="#Arrival" class="headerlink" title="Arrival"></a>Arrival</h3><ul>
+<li>Much of how we will communicate with the player is through arrivals in space. It is also through arrivals that a space ushers players toward their next destination or allows them to choose their own path. Much of how you experience a space when you arrive in it comes from the spatial conditions of the spaces that preceded it.</li>
+<li>Similar spatial experiences are common in exploration-based games such as those in The Legend of Zelda series or ThatGameCompany’s Journey for leading up to important enemy encounters, item acquisitions, or story events.</li>
+<li>Another important element of how players arrive at spaces is their point of view from the arrival points – camera</li>
+</ul>
+<h2 id="Genius-Loci-Spirit-of-Place"><a href="#Genius-Loci-Spirit-of-Place" class="headerlink" title="Genius Loci (Spirit of Place)"></a>Genius Loci (Spirit of Place)</h2><ul>
+<li>This term comes from a Roman belief that spirits would protect towns or other populated areas, acting as the town’s genius. Latetwentieth-century architects adopted the phrase to describe the identifying qualities or emotional experience of a place. 场景是否突出其应有的特点，场面调度如何，场景布置、音效、灯光</li>
+<li>Each of highlighted moments of gameplay—be they enemy encounters, movement puzzles, or helpful stopping points—has potential for its own genius loci.</li>
+<li>Are these places for rest or for battle? Should the player feel relaxed, tense, or meditative in these gamespaces? The answers to these questions depend highly on the game you are building, but can help you determine the kind of feel you want for your levels.</li>
+<li>Genius loci can be built through manipulations in lighting, shadows, spatial organization, and the size of spaces.</li>
+<li>Spaces in game with little or no genius loci usually be circulation spaces, that is, spaces for the player to move through to get to the next destination. Depending</li>
+</ul>
+<h2 id="Historic-Gameplay-Structures"><a href="#Historic-Gameplay-Structures" class="headerlink" title="Historic Gameplay Structures"></a>Historic Gameplay Structures</h2><h3 id="Labyrinth"><a href="#Labyrinth" class="headerlink" title="Labyrinth"></a>Labyrinth</h3><ul>
+<li>Classic labyrithins are unicursal——consisting of single winding path.</li>
+</ul>
+<h3 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h3><ul>
+<li>Mazes are branching spatial puzzles where occupants and players must find their way through an elaborate set of pathways with multiple dead ends to find an exit points.</li>
+</ul>
+<h3 id="Rhizome"><a href="#Rhizome" class="headerlink" title="Rhizome"></a>Rhizome</h3><h2 id="Spacial-Size-Type"><a href="#Spacial-Size-Type" class="headerlink" title="Spacial Size Type"></a>Spacial Size Type</h2><h3 id="Narrow-Space"><a href="#Narrow-Space" class="headerlink" title="Narrow Space"></a>Narrow Space</h3><ul>
+<li>Narrow gamespace is that which is not much larger than a player character’s own size metrics— often with space for only two of such a character to stand in a passage way</li>
+<li>limits of player’s metrics</li>
+<li>tension, conflict, envoking vulnerability</li>
+<li></li>
+</ul>
+<h3 id="Intimate-Space"><a href="#Intimate-Space" class="headerlink" title="Intimate Space"></a>Intimate Space</h3><ul>
+<li>Within intimate spaces, interactive surfaces or features are within reach of a player character’s inherent abilities.</li>
+</ul>
+<h3 id="Prospect-Space"><a href="#Prospect-Space" class="headerlink" title="Prospect Space"></a>Prospect Space</h3><ul>
+<li>snipe position<br>boss room</li>
+<li>Narrow spaces creat a sense of claustrophobia, prospect space create a sense of agoraphobia, an anxiety disorder that includes a fear of wide-open spaces.</li>
+</ul>
+<h2 id="Molecule-Level-Space"><a href="#Molecule-Level-Space" class="headerlink" title="Molecule Level Space"></a>Molecule Level Space</h2><ul>
+<li>Molecule Design highlights a methodology for spatial organization based on the arrangement of gamespaces, how players reach one from another, and how designers can allow or disallow access between them for interesting play scenarios.</li>
+<li>Diagram with nodes and edges—Nodes are the play spaces themselves—areas with significant enemy encounters, item pickups, spawn points, or opportunities for action. Edges describe the relationship between these spaces, be they visual or spatial (as in you can travel from one to another)</li>
+<li>Steiner Points： Steiner points are essentially shortcuts in level paths. These can be utilized purely by jumping from high ledges onto lower ones to save time(one-way valve), or may even be incentivized with power-ups or other rare items.</li>
+<li>Spawn points where players begin a level or come back to life during multiplayer matches. These spaces may be large but intimate, allowing players to gather resources before rejoining battles. Likewise, transitional spaces may be equally intimate, keeping players on an even playing field when inside, but leading to large prospect spaces where players may gain spatial advantage over one another. Also, sinle-player game where players can pay more attention to level details, transitions from intimately or narrowly scaled circulation to prospect spaces may describe changes in gameplay intensity and create “Jesus Christ spot” experiences.</li>
+</ul>
+<h2 id="Hub-Spaces"><a href="#Hub-Spaces" class="headerlink" title="Hub Spaces"></a>Hub Spaces</h2><ul>
+<li>Hubs are a type of intimate space that behaves like a lobby where the player may access a game’s different levels (the spokes).</li>
+<li>non-threating</li>
+<li>explorable areas with abilities obtaining gradually during whole game</li>
+<li>functional sites for buying and selling, skilling learning, tasks taking……</li>
+<li>access to travelling to different areas in game</li>
+<li>From a gameplay standpoint, hubs are notable for how they manage player goals. Hub-based games are typically structured around collecting resources, gold stars, puzzle pieces, etc. that facilitate travel through the game world and unlock portals. As players complete more intense.</li>
+</ul>
+<h2 id="Sandbox-Gamespaces"><a href="#Sandbox-Gamespaces" class="headerlink" title="Sandbox Gamespaces"></a>Sandbox Gamespaces</h2><ul>
+<li>Sandbox worlds are named for their ability to have defined boundaries while also allowing players to play however they want in less structured ways than many other games allow.</li>
+<li>User orientation, location awareness</li>
+<li>Landmarks(Architectual weenies): To attact players to goal points in games. ①They allow these world to remain their openness but still direct player towards places designers want them to go.②Allow players to understand where they are by acting like guideposts.③Often in concert with high points from which player can see large areas of the world. Tall towers draw players towards them and allow player to look for next objective once climbed.</li>
+</ul>
+<h3 id="Organizing-the-Sandbox"><a href="#Organizing-the-Sandbox" class="headerlink" title="Organizing the Sandbox"></a>Organizing the Sandbox</h3><ul>
+<li><p>To form Mental maps of city：landmarks, paths, nodes, districts, boundaries</p>
+</li>
+<li><p>Landmarks: Landmarks are recognizable elements that can be guideposts to people in an urban space This definition should sound very similar to the concept of architectural weenies, as they are the same thing.</p>
+</li>
+<li><p>Paths: In terms of molecule design, these paths are the lines that connect significant gamespaces. They can have their own challenges, but are often intimately scaled spaces without significant aesthetic features. Their purpose is to usher players through to the next point of important gameplay. In our previous example of Liberty City, paths are the same types of spaces—streets, sidewalks, etc.—as those suggested by Lynch.</p>
+</li>
+<li><p>Nodes: Nodes can be locations for landmarks to reside, channeling different paths onto one end goal. They can also, as Lynch points out, be strategic decision points at which observers can decide what path to take next. In many open-world games such as Skyrim, such decision nodes are everywhere, forcing players to prioritize how they wish to spend their time: do you want to go find things to do in a town or explore dungeons?</p>
+</li>
+<li><p>Edges(Boundaries): They are linear elements that mark a transition from one continuous area or condition to the next. Edges can be walls, rows of buildings, changes in vegetation, or other markers that show that an area has changed in character or genius loci. In sandbox games, areas of varying genius loci allow players to feel that the world has variety in the way that games with distinct level theme types—ice, fire, forest, etc.—do.<br>From a production standpoint, edges can mark a change in art style. The type of architectural or vegetation models you use can shift, signifying the change to a new area. Likewise, transitions between textures on surfaces can generate player-perceived edges. These transitions can be quick or gradual. A quick transition may mark a defined border, and can often be accompanied by architectural details such as walls or gates, as landscape rarely transitions suddenly. These are especially useful if the area you are entering is the site of an event—a battle, fire, encounter, etc.—or if you are transitioning to the realm of a specific group. Gradual transitions, on the other hand, may help build anticipation for reaching a new zone. Burned trees, arrows, and other objects sticking out of the scenery, etc., can give the impression that you are about to enter a dangerous area, creating a tension when approaching it. They can also indicate that you are reaching a natural border between environment types—plains to forest, desert to canyon, etc.<br><img src="/pics/Reading_Notes_of_An_Architecture_Approach_To_Level_Design/edges.jpg"></p>
+</li>
+<li><p>Districts: The last of Lynch’s elements is the district, which he describes as sections of a city where the observer enters “inside of” and which have some identifying character. In the previous section, we discussed how changes in art style, environment art elements, and texture can indicate changes in environments within a sandbox world. Once past these edges, players find themselves within districts. Beyond changes in style, districts in games differentiate themselves from one another with changes in gameplay: types of NPCs, enemies, events, or mini-games.</p>
+</li>
+<li><p>箱庭式关卡<br><img src="/pics/Reading_Notes_of_An_Architecture_Approach_To_Level_Design/districts.jpg"></p>
+</li>
+</ul>
+<h2 id="Workong-with-Camera-Views"><a href="#Workong-with-Camera-Views" class="headerlink" title="Workong with Camera Views"></a>Workong with Camera Views</h2><p>略</p>
+<h2 id="Enemies-as-Alternative-Architecture"><a href="#Enemies-as-Alternative-Architecture" class="headerlink" title="Enemies as Alternative Architecture"></a>Enemies as Alternative Architecture</h2><ul>
+<li>Block the way</li>
+<li>Shrinking Fortress</li>
+<li>Strong Enemy(Boss) may be used to herd the player where th designer would like him or her to go</li>
+<li>Enemies, NPCs, and other game elements not traditionally viewed as Architecture can be used for architectual purposes.</li>
+</ul>
+<hr>
+<h1 id="Communicating-through-Environment-Art"><a href="#Communicating-through-Environment-Art" class="headerlink" title="Communicating through Environment Art"></a>Communicating through Environment Art</h1><h2 id="Teaching-Theories-for-Game-Levels"><a href="#Teaching-Theories-for-Game-Levels" class="headerlink" title="Teaching Theories for Game Levels"></a>Teaching Theories for Game Levels</h2><ul>
+<li>行为主义：分解任务，循序渐进，奖励与惩罚，反复学习<br>Operant conditioning is used to reinforce gameplay mechanics through applications of rewards and other positive game outcomes for success and through punishments for failures.</li>
+<li>蒙台梭利法：环境教学，简单单一机制→复杂单一机制→混合机制(起承转合)<br>The Montessori Method gives us a framework for understanding how to structure a series of puzzles or challenges over the course of a game so that players can deduce solutions by recognizing elements of previous challenges, even if they are used in new ways.</li>
+<li>建构主义：体验，试错，形成并反复调整图式<br>Constructivist methods show us how we can structure challenges, feedback, and punishments in such a way that players are motivated to iterate their play to overcome or master gameplay challenges.<br>模块化资产：Halo中的星盟建筑，战斗区域前的存档点，告诉玩家即将面临挑战</li>
+</ul>
+<h2 id="Symbols-and-Visual-Design-in-Games"><a href="#Symbols-and-Visual-Design-in-Games" class="headerlink" title="Symbols and Visual Design in Games"></a>Symbols and Visual Design in Games</h2><p>Symbol – visual objects that carry representative associations with ideas or gameplay mechanics.</p>
+<h3 id="Implementing-Symbols-in-Games"><a href="#Implementing-Symbols-in-Games" class="headerlink" title="Implementing Symbols in Games"></a>Implementing Symbols in Games</h3><ul>
+<li>Commuication 构建与玩家进行交流的视觉语言(visual language)<br>如模块化美术资产 In Halo, player attacking enemy forts may see a purple platform floating in the air. 玩家将预知即将发生的战斗，从而做好准备 When designers put such enemies in a game, they typically have a few variations of prefabricated emeny object that they litter around a level, meaning that not only their behavior be consistent, but also the player will eventually build a literacy of their habits</li>
+<li>区分功能场景与仅仅作为美术表现的场景<br>For environment art-intensive games, it is important to establish what portion of the scenery is a gameplay symbol and what is simply environment art. For example, L.A. Noire24 features an extensive environment that simulates the city of Los Angeles in 1947. However, only certain buildings are important to gameplay, and not all can be interacted with. The designers distinguish interactive buildings from non-interactive buildings by coloring the knobs, handles, or other entry hardware of the interactive buildings a gold color.</li>
+</ul>
+<h3 id="Teaching-with-Symbol-in-Games-Introducing-Symbols"><a href="#Teaching-with-Symbol-in-Games-Introducing-Symbols" class="headerlink" title="Teaching with Symbol in Games &amp; Introducing Symbols"></a>Teaching with Symbol in Games &amp; Introducing Symbols</h3><h3 id="Symbols-as-Guides-Designing-and-Placing-Symbols-for-Effective-Communication"><a href="#Symbols-as-Guides-Designing-and-Placing-Symbols-for-Effective-Communication" class="headerlink" title="Symbols as Guides &amp; Designing and Placing Symbols for Effective Communication"></a>Symbols as Guides &amp; Designing and Placing Symbols for Effective Communication</h3><ul>
+<li>Symbols correspond to mechanics</li>
+<li>Good principles of visual communication are vital not only for the aesthetic quality of each symbol, but also to make them stand out from other, non-symbolic pieces of environment art.</li>
+</ul>
+<h3 id="Color"><a href="#Color" class="headerlink" title="Color"></a>Color</h3><ul>
+<li>HSB(HSV) model is describes colors by their hue, the name of a color that most people think of as a color itself; their saturation, the purity of a color; and the brightness, how much black or white there is in a color.</li>
+<li>Analogous color, complementary color</li>
+<li>Property of colors: temperature, emotion, stereotypes(blue for magic)</li>
+<li></li>
+</ul>
+<h3 id="Contrast"><a href="#Contrast" class="headerlink" title="Contrast"></a>Contrast</h3><ul>
+<li>Size, color, style, shape…</li>
+</ul>
+<h3 id="Framimg"><a href="#Framimg" class="headerlink" title="Framimg"></a>Framimg</h3><ul>
+<li>Framing describes the use of foreground elements to surround the view of something important in an environment as though it were in frame.</li>
+</ul>
+<h3 id="Rule-of-Third"><a href="#Rule-of-Third" class="headerlink" title="Rule of Third"></a>Rule of Third</h3><h2 id="Architectural-Forms-and-Types"><a href="#Architectural-Forms-and-Types" class="headerlink" title="Architectural Forms and Types"></a>Architectural Forms and Types</h2><ul>
+<li>Architectual types describe a building’s use form its form. Building forms consistent with gameplay functions, communicating their functions to players.</li>
+<li>Gamespaces as systems of language and communication.</li>
+</ul>
+<h2 id="Controlling-Information-in-Memory-Palaces-to-control-how-player-absorb-and-utilize-information-mentioned-above"><a href="#Controlling-Information-in-Memory-Palaces-to-control-how-player-absorb-and-utilize-information-mentioned-above" class="headerlink" title="Controlling Information in Memory Palaces (to control how player absorb and utilize information mentioned above )"></a>Controlling Information in Memory Palaces (to control how player absorb and utilize information mentioned above )</h2><h3 id="Certainty"><a href="#Certainty" class="headerlink" title="Certainty"></a>Certainty</h3><ul>
+<li>The outcome is known</li>
+<li>On a more micro-level in game, creating certainty within in levels through consistent level elements can be a powerful tool for enticing players to explore or continues game.</li>
+<li>Establish a pattern and continue throughout the game.</li>
+<li>Parrerns of certainty help the player know when to unwind or prepare for big action</li>
+</ul>
+<h3 id="Uncertainty"><a href="#Uncertainty" class="headerlink" title="Uncertainty"></a>Uncertainty</h3><ul>
+<li>A level space of pure uncertainty can be frustrating to players.</li>
+<li>Uncertainty – a symptom of poor design or environment art direction</li>
+<li>The reason for such confusing game areas is typically bland and repetitive environment, or the overuse of meaningless spatial configurations (as opposed to the purposeful use of special rooms for saving, healing, and other repeatable symbolic forms).</li>
+<li>Conversely, a junction that communicates what each branch holds, even subtly, allows the player to make informed decisions on where to go in a level. 支线信息的提供——环境的视角重心（光线），景物的变化，前进路径之外，空间的缩小，已有钩子的引导，明确的箭头提示，特定的功能性区域特征……</li>
+</ul>
+<h3 id="Risk"><a href="#Risk" class="headerlink" title="Risk"></a>Risk</h3><ul>
+<li>Certain information, uncertain outcome.</li>
+<li>Risk-Reward – Creating exciting emotional experiences</li>
+</ul>
+<hr>
+<p>＞ Previous chapter we have looked at ideas that lead to level design clarify : centering levels with core machine, symbolic art assets with clear meanings… In this chapter and the next, we will more deeply explore how these elements may be used to make a space rich and exciting through contrasts.</p>
+<hr>
+<h1 id="Building-Exciting-Levels-with-Dangerous-Architecture"><a href="#Building-Exciting-Levels-with-Dangerous-Architecture" class="headerlink" title="Building Exciting Levels with Dangerous Architecture"></a>Building Exciting Levels with Dangerous Architecture</h1><h2 id="Survival-Instincts-and-Game-Complexity"><a href="#Survival-Instincts-and-Game-Complexity" class="headerlink" title="Survival Instincts and Game Complexity"></a>Survival Instincts and Game Complexity</h2><ul>
+<li>Architectural spaces can have multiple functions – richness</li>
+<li>Creating contrasts of safe and dangerous spaces from scene to scene, or even within a single scene, is one way to create gameplay complexity and “juice” level design.</li>
+<li>Games that allow players to minimize their vulnerability over time tap into our own quest for natural growth and enhancement<br>＞ Adventure games such as The Legend of Zelda6 and Metroid7 and roleplaying games such as Dragon Quest8 base their overall structures on this idea. PlayersBuilding Exciting Levels with Dangerous Architecture﻿<br>are confined to a small territory of a large map by either powerful enemies or an environmental obstacle they cannot cross. As players explore this limited space, they can find enhancements that allow them to move outside the territory or more easily defeat monsters that previously held them back. This pattern is repeated throughout a game, with the game environment continually expanding as the player explores and progresses. Eventually the player avatar can explore the entire map and easily overcome dangers he or she once found insurmountable. As a game structure, vulnerability-based design is very environmental in nature and can create memorable worlds, such as Zelda’s Hyrule or Metroid’s planet Zebes.</li>
+<li>In games where players must manage their survival resources, level design can take on a much less linear form if the designer creates opportunities for players to risk losing health so they may explore for powerful rewards.<br><img src="/pics/Reading_Notes_of_An_Architecture_Approach_To_Level_Design/decision_point.jpg"></li>
+</ul>
+<h2 id="Prosprct-and-Refuge-Spacial-Design"><a href="#Prosprct-and-Refuge-Spacial-Design" class="headerlink" title="Prosprct and Refuge Spacial Design"></a>Prosprct and Refuge Spacial Design</h2><ul>
+<li>prospects(safe space) &amp; refuges(unsafe space)</li>
+<li>These spaces(safe and unsafe spaces) can be played against one another to create interesting sequences of gameplay or in the same space to enrich it with complexity.</li>
+</ul>
+<h2 id="Shade-Shadow-and-Ambiguity"><a href="#Shade-Shadow-and-Ambiguity" class="headerlink" title="Shade, Shadow, and Ambiguity"></a>Shade, Shadow, and Ambiguity</h2><h3 id="Shade"><a href="#Shade" class="headerlink" title="Shade"></a>Shade</h3><ul>
+<li>Shade（光透过玻璃等）is known to create a sense of enticement in humans. As Hildebrand points out, incomplete visual information entices humans to explore and complete their knowledge of what they see</li>
+<li>Ambiguity – one element or space can serve multiple functions under different conditions.（根据情景的不同，机制变得有利或有害）</li>
+<li>Atmosphere Ambiguity — a condition where the player is unsure of whether a space is safe or unsafe due to a combination of friendly, unfriendly, and ambiguous spatial indicators.</li>
+</ul>
+<h3 id="Shadow"><a href="#Shadow" class="headerlink" title="Shadow"></a>Shadow</h3><ul>
+<li>Shadow is the condition created when an object obscures the light source and leaves a lack of light. Like shade, shadow has both positive and negative uses.</li>
+<li>Shadows can be used to create perception of separate space</li>
+</ul>
+<h3 id="Negative-Space-一些设计中使用的“空白”"><a href="#Negative-Space-一些设计中使用的“空白”" class="headerlink" title="Negative Space (一些设计中使用的“空白”)"></a>Negative Space (一些设计中使用的“空白”)</h3><ul>
+<li>In art and graphic design, negative space is unused or blank space in a work, the exposure of the background. For our purposes, negative space refers to that which is unknown to the player, viewer or occupant.</li>
+<li>In many ways, negative space is a way to bolster the effectiveness of prospect spaces as it works best when there is a perception of a beyond to the gamespace, or that it extends past what the player can see. （营造一种广阔的空间的感觉，如死亡空间中怪物在管道中运动的声音）</li>
+</ul>
+<h2 id="Loving-and-Hating-Height"><a href="#Loving-and-Hating-Height" class="headerlink" title="Loving and Hating Height"></a>Loving and Hating Height</h2><ul>
+<li>Changes in height, whether they be via floating platforms, ramps, stairs, catwalks, or other mechanisms, are a way for level designers to create visually interesting spaces.<br><img src="/pics/Reading_Notes_of_An_Architecture_Approach_To_Level_Design/loving_and_hating_height_1.jpg"></li>
+<li>Perception of the height — caved-in building’s windows, colums…in which structural columns were not represented as a singular monolithic piece, but as many smaller linear elements. These linear elements would be drawn upward from the floor of the church to the top of the vaulted ceiling to create the experience of peering into the heaven.<br><img src="/pics/Reading_Notes_of_An_Architecture_Approach_To_Level_Design/loving_and_hating_height_2.jpg"></li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>While previous sections talked about pure concepts in levels, we are now starting to see how contrasting elements as well as elements with which humans have ambiguous relationships—light, dark, high, low, and so on—can be used for dramatic effect. We also explored the architecture of survival, which provided insights for creating spaces through the use of prospects and refuges.</p>
+<hr>
+<h1 id="Rewards-in-Gamespaces"><a href="#Rewards-in-Gamespaces" class="headerlink" title="Rewards in Gamespaces"></a>Rewards in Gamespaces</h1><h2 id="The-Purpose-of-Rewards"><a href="#The-Purpose-of-Rewards" class="headerlink" title="The Purpose of Rewards"></a>The Purpose of Rewards</h2><ul>
+<li>Incentivizing and reinforcing gameplay mechanics. Teaching players how to play a game by rewarding them when they correctly execute gameplay mechanics. 推进游戏——战斗奖励、解迷奖励</li>
+<li>Enticing exploration — In a spatial sense, rewards are useful for making player take risks or leave the game’s “main path” in favor of exploration. Rewards that are put into the player’s line of sight but kept out of reach can be powerful motivators to explore the level he or she currently inhabits beyond any obvious routes. 引导——钩子(hook)</li>
+<li>Incentivizing and reinforcing gameplay mechanics.</li>
+<li>Curiosity — Rather than directly showing a reward to a player, the player gets clues that a reward may be nearby and is thus curious to see if the there. This can be accomplished with the use of modular assets, textures, lighting techniques, or anything that can be prefabricated and reused throughout a game as a symbol.</li>
+<li>Establishing reward patterns of gamespaces&#x2F;game mechanics, is one way to feed information to players as they play. 构建语言 building language</li>
+</ul>
+<h2 id="The-Types-of-Rewards-in-Gamespaces"><a href="#The-Types-of-Rewards-in-Gamespaces" class="headerlink" title="The Types of Rewards in Gamespaces"></a>The Types of Rewards in Gamespaces</h2><h2 id="Making-Rewards-Exciting-through-Denial"><a href="#Making-Rewards-Exciting-through-Denial" class="headerlink" title="Making Rewards Exciting through Denial"></a>Making Rewards Exciting through Denial</h2><h2 id="Goals-and-Rewards-Schedules"><a href="#Goals-and-Rewards-Schedules" class="headerlink" title="Goals and Rewards Schedules"></a>Goals and Rewards Schedules</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wza0409.github.io">Aozi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/An%20Architecture%20Approach%20To%20Level%20Design/">https://wza0409.github.io/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/An%20Architecture%20Approach%20To%20Level%20Design/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wza0409.github.io" target="_blank">Aozi</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Notes/">Notes</a><a class="post-meta__tags" href="/tags/Game-Design/">Game Design</a></div><div class="post_share"><div class="social-share" data-image="/img/covers/an_architecture_approach_to_level_design.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/" title="关卡布局与灯光使用技巧"><img class="cover" src="/img/logo_gdc.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">关卡布局与灯光使用技巧</div></div></a></div><div class="next-post pull-right"><a href="/uncategorized/Design/" title="An Architecture Approach To Level Design"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">An Architecture Approach To Level Design</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E3%80%8A%E6%9C%80%E5%90%8E%E7%94%9F%E8%BF%98%E8%80%85%E3%80%8B%E8%BD%A6%E7%AB%99%E5%85%B3%E5%8D%A1%E6%8B%86%E5%88%86/" title="《最后生还者》车站关卡拆分"><img class="cover" src="/img/covers/the_last_of_us.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-17</div><div class="title">《最后生还者》车站关卡拆分</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/Elyot%20Grant%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E8%A7%A3%E8%B0%9C%E6%B8%B8%E6%88%8F%E7%9A%8430%E5%A0%82%E8%AF%BE/" title="Elyot Grant——设计解谜游戏的30堂课"><img class="cover" src="/img/covers/puzzle_solving.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-26</div><div class="title">Elyot Grant——设计解谜游戏的30堂课</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E5%85%B3%E5%8D%A1%E5%B8%83%E5%B1%80%E4%B8%8E%E7%81%AF%E5%85%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7/" title="关卡布局与灯光使用技巧"><img class="cover" src="/img/logo_gdc.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-21</div><div class="title">关卡布局与灯光使用技巧</div></div></a></div><div><a href="/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/%E5%85%B3%E5%8D%A1%E8%A7%A3%E8%B0%9C%E8%AE%BE%E8%AE%A1%E5%88%86%E4%BA%AB/" title="关卡解谜设计分享"><img class="cover" src="/img/logo_gdc.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-01</div><div class="title">关卡解谜设计分享</div></div></a></div><div><a href="/Unreal-Engine/%E8%99%9A%E5%B9%BBC++%E5%B0%8F%E8%AE%B0/" title="【札记】虚幻C++学习笔记"><img class="cover" src="/img/logo_UnrealEngine.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-19</div><div class="title">【札记】虚幻C++学习笔记</div></div></a></div><div><a href="/%E4%BD%9C%E5%93%81%E9%9B%86/%E7%A5%9E%E7%A7%98%E6%B4%9E%E7%AA%9F%E2%80%94%E2%80%94%E5%86%92%E9%99%A9%E8%A7%A3%E8%B0%9C%E7%B1%BB%E6%B8%B8%E6%88%8F%E5%85%B3%E5%8D%A1demo%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3/" title="神秘洞窟——冒险解谜类游戏关卡demo设计文档"><img class="cover" src="/img/covers/demo_cave.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-20</div><div class="title">神秘洞窟——冒险解谜类游戏关卡demo设计文档</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Aozi</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Level-Design-Workflows"><span class="toc-number">1.</span> <span class="toc-text">Level Design Workflows</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Form-follows-core-mechanics"><span class="toc-number">1.1.</span> <span class="toc-text">Form follows core mechanics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-Design-Workflows-1"><span class="toc-number">1.2.</span> <span class="toc-text">Level Design Workflows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Level-Design-Parti-Get-general-ideas-down"><span class="toc-number">1.2.1.</span> <span class="toc-text">Level Design Parti - Get general ideas down</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9CScenes%E2%80%9D-and-Readablity"><span class="toc-number">1.2.2.</span> <span class="toc-text">“Scenes” and Readablity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Digital-Prototype-with-Grayboxing"><span class="toc-number">1.2.3.</span> <span class="toc-text">Digital Prototype with Grayboxing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pacing-your-level-with-Nintendo-Power-method"><span class="toc-number">1.2.4.</span> <span class="toc-text">Pacing your level with Nintendo Power method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Iterative-Design-with-Playtesting"><span class="toc-number">1.2.5.</span> <span class="toc-text">Iterative Design with Playtesting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Modular-Level-Design"><span class="toc-number">1.2.6.</span> <span class="toc-text">Modular Level Design</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-Design-Scheduling"><span class="toc-number">1.3.</span> <span class="toc-text">Level Design Scheduling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Toyboxs-%E2%80%93-A-test-map-for-mechanics-in-levels"><span class="toc-number">1.3.1.</span> <span class="toc-text">Toyboxs – A test map for mechanics in levels</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Building-from-the-Middle"><span class="toc-number">1.3.2.</span> <span class="toc-text">Building from the Middle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Building-in-Order"><span class="toc-number">1.3.3.</span> <span class="toc-text">Building in Order</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Basic-Game-Space"><span class="toc-number">2.</span> <span class="toc-text">Basic Game Space</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Architecture-Spacial-Arrangements"><span class="toc-number">2.1.</span> <span class="toc-text">Architecture Spacial Arrangements</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Figure-Ground-%E5%A4%96%E5%BD%A2-%E8%83%8C%E6%99%AF"><span class="toc-number">2.1.1.</span> <span class="toc-text">Figure-Ground 外形-背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Form-Void-Solid-Void"><span class="toc-number">2.1.2.</span> <span class="toc-text">Form-Void (Solid-Void)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrival"><span class="toc-number">2.1.3.</span> <span class="toc-text">Arrival</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Genius-Loci-Spirit-of-Place"><span class="toc-number">2.2.</span> <span class="toc-text">Genius Loci (Spirit of Place)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Historic-Gameplay-Structures"><span class="toc-number">2.3.</span> <span class="toc-text">Historic Gameplay Structures</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Labyrinth"><span class="toc-number">2.3.1.</span> <span class="toc-text">Labyrinth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maze"><span class="toc-number">2.3.2.</span> <span class="toc-text">Maze</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rhizome"><span class="toc-number">2.3.3.</span> <span class="toc-text">Rhizome</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spacial-Size-Type"><span class="toc-number">2.4.</span> <span class="toc-text">Spacial Size Type</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Narrow-Space"><span class="toc-number">2.4.1.</span> <span class="toc-text">Narrow Space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intimate-Space"><span class="toc-number">2.4.2.</span> <span class="toc-text">Intimate Space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prospect-Space"><span class="toc-number">2.4.3.</span> <span class="toc-text">Prospect Space</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Molecule-Level-Space"><span class="toc-number">2.5.</span> <span class="toc-text">Molecule Level Space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hub-Spaces"><span class="toc-number">2.6.</span> <span class="toc-text">Hub Spaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sandbox-Gamespaces"><span class="toc-number">2.7.</span> <span class="toc-text">Sandbox Gamespaces</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Organizing-the-Sandbox"><span class="toc-number">2.7.1.</span> <span class="toc-text">Organizing the Sandbox</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Workong-with-Camera-Views"><span class="toc-number">2.8.</span> <span class="toc-text">Workong with Camera Views</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enemies-as-Alternative-Architecture"><span class="toc-number">2.9.</span> <span class="toc-text">Enemies as Alternative Architecture</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Communicating-through-Environment-Art"><span class="toc-number">3.</span> <span class="toc-text">Communicating through Environment Art</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Teaching-Theories-for-Game-Levels"><span class="toc-number">3.1.</span> <span class="toc-text">Teaching Theories for Game Levels</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbols-and-Visual-Design-in-Games"><span class="toc-number">3.2.</span> <span class="toc-text">Symbols and Visual Design in Games</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementing-Symbols-in-Games"><span class="toc-number">3.2.1.</span> <span class="toc-text">Implementing Symbols in Games</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Teaching-with-Symbol-in-Games-Introducing-Symbols"><span class="toc-number">3.2.2.</span> <span class="toc-text">Teaching with Symbol in Games &amp; Introducing Symbols</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Symbols-as-Guides-Designing-and-Placing-Symbols-for-Effective-Communication"><span class="toc-number">3.2.3.</span> <span class="toc-text">Symbols as Guides &amp; Designing and Placing Symbols for Effective Communication</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Color"><span class="toc-number">3.2.4.</span> <span class="toc-text">Color</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Contrast"><span class="toc-number">3.2.5.</span> <span class="toc-text">Contrast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Framimg"><span class="toc-number">3.2.6.</span> <span class="toc-text">Framimg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rule-of-Third"><span class="toc-number">3.2.7.</span> <span class="toc-text">Rule of Third</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Architectural-Forms-and-Types"><span class="toc-number">3.3.</span> <span class="toc-text">Architectural Forms and Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controlling-Information-in-Memory-Palaces-to-control-how-player-absorb-and-utilize-information-mentioned-above"><span class="toc-number">3.4.</span> <span class="toc-text">Controlling Information in Memory Palaces (to control how player absorb and utilize information mentioned above )</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Certainty"><span class="toc-number">3.4.1.</span> <span class="toc-text">Certainty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Uncertainty"><span class="toc-number">3.4.2.</span> <span class="toc-text">Uncertainty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Risk"><span class="toc-number">3.4.3.</span> <span class="toc-text">Risk</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Building-Exciting-Levels-with-Dangerous-Architecture"><span class="toc-number">4.</span> <span class="toc-text">Building Exciting Levels with Dangerous Architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Survival-Instincts-and-Game-Complexity"><span class="toc-number">4.1.</span> <span class="toc-text">Survival Instincts and Game Complexity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prosprct-and-Refuge-Spacial-Design"><span class="toc-number">4.2.</span> <span class="toc-text">Prosprct and Refuge Spacial Design</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shade-Shadow-and-Ambiguity"><span class="toc-number">4.3.</span> <span class="toc-text">Shade, Shadow, and Ambiguity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shade"><span class="toc-number">4.3.1.</span> <span class="toc-text">Shade</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shadow"><span class="toc-number">4.3.2.</span> <span class="toc-text">Shadow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Negative-Space-%E4%B8%80%E4%BA%9B%E8%AE%BE%E8%AE%A1%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E2%80%9C%E7%A9%BA%E7%99%BD%E2%80%9D"><span class="toc-number">4.3.3.</span> <span class="toc-text">Negative Space (一些设计中使用的“空白”)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loving-and-Hating-Height"><span class="toc-number">4.4.</span> <span class="toc-text">Loving and Hating Height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">4.5.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rewards-in-Gamespaces"><span class="toc-number">5.</span> <span class="toc-text">Rewards in Gamespaces</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Purpose-of-Rewards"><span class="toc-number">5.1.</span> <span class="toc-text">The Purpose of Rewards</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Types-of-Rewards-in-Gamespaces"><span class="toc-number">5.2.</span> <span class="toc-text">The Types of Rewards in Gamespaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Making-Rewards-Exciting-through-Denial"><span class="toc-number">5.3.</span> <span class="toc-text">Making Rewards Exciting through Denial</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals-and-Rewards-Schedules"><span class="toc-number">5.4.</span> <span class="toc-text">Goals and Rewards Schedules</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Aozi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">世界，充满未解之谜……</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script></div></body></html>
